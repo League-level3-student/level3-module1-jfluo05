@@ -18,6 +18,12 @@ public class _02_LogSearch implements ActionListener{
 		JButton button= new JButton();
 		JButton button2= new JButton();
 		JButton button3= new JButton();
+		int id;
+		
+		public static void main(String[] args) {
+			_02_LogSearch ls= new _02_LogSearch();
+			ls.GUI();
+		}
 	// Create a GUI with three buttons.
 	void GUI() {
 		
@@ -30,6 +36,10 @@ public class _02_LogSearch implements ActionListener{
 		button.addActionListener(this);
 		button2.addActionListener(this);
 		button3.addActionListener(this);
+		button.setText("button 1");
+		button2.setText("button 2");
+		button3.setText("button 3");
+		frame.pack();
 	}
 	// When this is complete, add a fourth button to your window.
 	// Button 4: Remove Entry
@@ -50,18 +60,31 @@ public class _02_LogSearch implements ActionListener{
 		if(e.getSource()==button) {
 	
 		String idNum=JOptionPane.showInputDialog("enter an ID number:");
-		int id=Integer.parseInt(idNum);
+		id=Integer.parseInt(idNum);
 		String name=JOptionPane.showInputDialog("enter a name:");
 		hm.put(id, name);
-		}
-
+		
+	
 	
 	// Button 2: Search by ID
 	// When this button is clicked, use an input dialog to ask the user to enter an
-		
 	// ID number.
 	// If that ID exists, display that name to the user.
 	// Otherwise, tell the user that that entry does not exist.
+		}
+		
+			if(e.getSource()==button2) {
+				String idNum2=JOptionPane.showInputDialog("enter an ID number:");
+				int id2=Integer.parseInt(idNum2);
+				
+					for(int i:hm.keySet()){
+						if (i==id) {
+							JOptionPane.showMessageDialog(null,hm.get(i));
+						
+					}
+				}
+		}
+			
 	
 	// Button 3: View List
 	// When this button is clicked, display the entire list in a message dialog in
@@ -70,6 +93,12 @@ public class _02_LogSearch implements ActionListener{
 	// ID: 245 Name: Polly Powers
 	// ID: 433 Name: Oliver Ortega
 	// etc...
+			if(e.getSource()==button3) {
+				
+				for(int f:hm.keySet()){
+					JOptionPane.showMessageDialog(null, "ID: "+f+" Name: "+hm.get(f));
+				
+			}
 	}
+	}}
 
-}
